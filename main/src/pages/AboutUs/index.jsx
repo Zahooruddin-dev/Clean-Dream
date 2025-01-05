@@ -9,12 +9,12 @@ const AboutUs = () => {
     <section id="about" className="container">
       <div className="content row">
         <div className="title col-md">
-          <h2>About Dream Maids</h2>
+          <h2>About Fresh Sweap</h2>
           <img src={Logo} alt="cleaner" />
         </div>
         <p className="text col-md">
-          Dream Maids Cleaning Services LLC has provided high-quality cleaning
-          and maintenance services customized to our clients’ needs. Our
+          Fresh Sweap Cleaning Services LLC has provided high-quality cleaning
+          and maintenance services customized to our client's needs. Our
           professional cleaning company ensures smooth service transitions due
           to our extensive experience. Dream Maids cares deeply about the
           impression you make on others. We are dedicated to creating clean,
@@ -47,7 +47,7 @@ const AboutUs = () => {
         </div>
         <p className="text col-md">
           Working over 10 years in the business of home care and cleaning
-          service, our founder and proud mother of 3, Maria Garzon wanted to
+          service, our founder and proud mother, Sussie wanted to
           expand both her knowledge of the industry onto others just like her as
           well as bring her years of expertise in the form of peace and joy into
           the homes of many she could not reach before as a freelance

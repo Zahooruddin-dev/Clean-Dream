@@ -1,8 +1,6 @@
 import React from "react"
-import BookNow from "../BookNow"
 import Animations from "./Animations"
-import theGoumble from "../../images/TheGoumble.png"
-import logo from "../../images/logo.png"
+import mz from "../../images/avatarme2.svg"
 import palmTree from "../../images/palm-tree.svg"
 import "./footer.css"
 import palmTreeMobile from "../../images/palm-tree-mobile.svg"
@@ -27,11 +25,11 @@ const Footer = () => {
             {/* fix footer alignment */}
             <div id="footer-top" className="col-md">
               {/* <img id="img" src={logo} alt="Dream Maids Logo" /> */}
-              <h4>Dream Maids</h4>
+              <h4>Fresh Sweap</h4>
               <ul className="list-unstyled">
                 <li>Providing customized high-quality</li>
-                <li> cleaning and maintenance services</li>
-                <li>to meet clients' needs.</li>
+                <li>cleaning and maintenance services</li>
+                <li>to meet client's needs.</li>
               </ul>
             </div>
             {/* Column2 */}
@@ -41,13 +39,13 @@ const Footer = () => {
                 <ui className="list-unstyled">
                   <li>
                     <a id="links" target="_blank" href="tel:+1 (561) 287-0358">
-                      (561) 287-0358
+                      (011) 123-1234
                     </a>
                   </li>
                 </ui>
                 <h5>Location:</h5>
                 <ui className="list-unstyled">
-                  <li> Palm Beach FL</li>
+                  <li> Vancover Canada</li>
                 </ui>
               </div>
             </div>
@@ -57,7 +55,7 @@ const Footer = () => {
                 <h4>Hours:</h4>
                 <ui className="list-unstyled">
                   <li>Monday - Friday,</li>
-                  <li>9:00 am - 6:00 pm</li>
+                  <li>8:00 am - 5:00 pm</li>
                   <li>Weekends by request</li>
                 </ui>
               </div>
@@ -66,15 +64,15 @@ const Footer = () => {
           <hr />
           <div className="row">
             <p className="col-sm">
-              &copy;{new Date().getFullYear()} by Dream Maids LLC | All rights
+              &copy;{new Date().getFullYear()} by Fresh Sweap LLC | All rights
               reserved | Powered by
               <a
-                href="https://github.com/TheGoumble/dream-maids"
+                href="https://github.com/Zahooruddin-dev/Clean-Dream"
                 target="_blank"
               >
                 <img
-                  src={theGoumble}
-                  alt="link to The github repo for the dream maids site"
+                  src={mz}
+                  alt="link to The github repo for the Fresh Sweap site"
                   id="theg"
                 />
               </a>

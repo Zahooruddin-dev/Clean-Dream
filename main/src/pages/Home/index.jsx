@@ -17,19 +17,19 @@ const Home = () => {
       img: service_1,
       heading: "Residential",
       content:
-        "We specializes in Residential cleaning. we have been working with families around the metropolitan area for over 9 years.",
+        "We specializes in Residential cleaning services. we have been working with families around the metropolitan area for over a decade.",
     },
     {
       img: service_2,
       heading: "Comercial",
       content:
-        "Keeping your commercial property neat and clean is an integral part of maintaining your facility, improving productivity, and attracting and retaining customers.",
+        "Keeping your commercial property clean is an integral part of maintaining your facility, improving productivity, and attracting and retaining customers.",
     },
     {
       img: service_3,
       heading: "Post-Construction",
       content:
-        "We provide thorough cleaning for house sales by a professional team supervised by a manager. Additionally, we offer periodic maintenance or touch-up cleaning based on your requirements.",
+        "We provide thorough cleaning for house sales and buildings by a professional team supervised by a manager. Additionally, we offer periodic maintenance or touch-up cleaning based on your requirements.",
     },
   ]
 
@@ -66,7 +66,7 @@ const Home = () => {
         <Col className="outer" id="aboutus">
           <div>
             <div>
-              <h2>Bringing peace into people’s homes for 15 years</h2>
+              <h2>Bringing peace into people’s homes for a decade</h2>
               <div>
                 <p>
                   A journey into one woman’s dream to begin a business now a
