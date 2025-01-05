@@ -1,0 +1,30 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+.parent-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+* {
+  font-family: "Lora", serif;
+}
+
+body {
+  background-color: #fdf8d7;
+}
+
+p {
+  font-size: clamp(1.1rem, 1vw, 1.3rem);
+  line-height: 1.4em;
+}
+
+

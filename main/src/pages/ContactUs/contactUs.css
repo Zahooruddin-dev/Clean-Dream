@@ -1,0 +1,12 @@
+.contact {
+  justify-content: center;
+}
+
+.contact > div {
+  z-index: 1;
+}
+
+#form{
+  display: flex;
+  flex-direction: column;
+}
