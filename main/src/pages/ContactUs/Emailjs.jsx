@@ -1,11 +1,6 @@
 import React, { useState } from "react"
-import { Button, Form, Col } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 import emailjs from "@emailjs/browser"
-import {
-  YOUR_TEMPLATE_ID,
-  YOUR_SERVICE_ID,
-  YOUR_PUBLIC_KEY,
-} from "../../SECRETS.js"
 
 const Emailjs = () => {
   const [form, setForm] = useState({
@@ -16,16 +11,23 @@ const Emailjs = () => {
   })
 
   const [errors, setErrors] = useState({})
+  
+  // Use environment variables
+  const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID
+  const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+  const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+
   const setField = (field, value) => {
     setForm({
       ...form,
       [field]: value,
     })
-    if (!!errors[field])
+    if (!!errors[field]) {
       setErrors({
         ...errors,
         [field]: null,
       })
+    }
   }
 
   const validateForm = () => {
@@ -33,12 +35,9 @@ const Emailjs = () => {
     const newErrors = {}
 
     if (!name || name === "") newErrors.name = "Please enter your name."
-    if (!phone || phone === "")
-      newErrors.phone = "Please enter your phone number."
-    if (!email || email === "")
-      newErrors.email = "Please enter your email address."
-    if (!message || message === "")
-      newErrors.message = "Please enter a message to send to us."
+    if (!phone || phone === "") newErrors.phone = "Please enter your phone number."
+    if (!email || email === "") newErrors.email = "Please enter your email address."
+    if (!message || message === "") newErrors.message = "Please enter a message to send to us."
 
     return newErrors
   }
@@ -50,29 +49,29 @@ const Emailjs = () => {
       setErrors(formErrors)
     } else {
       emailjs
-        .send(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, form, YOUR_PUBLIC_KEY)
+        .send(SERVICE_ID, TEMPLATE_ID, form, PUBLIC_KEY)
         .then((res) => {
-          document.getElementById("name-input").value = ""
-          document.getElementById("phone-input").value = ""
-          document.getElementById("email-input").value = ""
-          document.getElementById("message-input").value = ""
-          setForm("")
-          console.log(res)
+          // Reset form
+          setForm({
+            name: "",
+            phone: "",
+            email: "",
+            message: ""
+          })
+          console.log("Email sent successfully:", res)
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.error("Failed to send email:", err))
     }
   }
 
   return (
     <>
-      <Form>
-        <Form.Group>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
           <Form.Label>Full Name</Form.Label>
           <Form.Control
-            id="name-input"
             type="text"
-            class="form-control"
-            placeholder="Enter your first name"
+            placeholder="Enter your full name"
             value={form.name}
             onChange={(e) => setField("name", e.target.value)}
             isInvalid={!!errors.name}
@@ -82,12 +81,10 @@ const Emailjs = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
-            id="phone-input"
             type="tel"
-            class="form-control"
             placeholder="Enter your phone number"
             value={form.phone}
             onChange={(e) => setField("phone", e.target.value)}
@@ -98,12 +95,10 @@ const Emailjs = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
-            id="email-input"
             type="email"
-            class="form-control"
             placeholder="Enter email"
             value={form.email}
             onChange={(e) => setField("email", e.target.value)}
@@ -114,14 +109,12 @@ const Emailjs = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Comment or Message</Form.Label>
+        <Form.Group className="mb-3">
+          <Form.Label>Message</Form.Label>
           <Form.Control
-            id="message-input"
             as="textarea"
             rows={3}
-            className="form-control"
-            placeholder="Enter a message or comment"
+            placeholder="Enter your message"
             value={form.message}
             onChange={(e) => setField("message", e.target.value)}
             isInvalid={!!errors.message}
@@ -130,10 +123,11 @@ const Emailjs = () => {
             {errors.message}
           </Form.Control.Feedback>
         </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
       </Form>
-      <Button variant="primary" onClick={handleSubmit}>
-        Submit
-      </Button>
     </>
   )
 }
